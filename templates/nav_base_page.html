@@ -1,0 +1,29 @@
+{{ define "header" }}
+<header>
+    <div class="row flex-nowrap justify-content-between align-items-center">
+        <div class="col-12 text-center">
+            <div class="jumbotron">
+                <h1 class="blog-header-logo text-light overlay">TEST Banner</h1>
+            </div>
+        </div>
+    </div>
+</header>
+{{ end }}
+
+{{ define "nav" }}
+<nav class="navbar sticky-top navbar-expand navbar-light bg-light">
+    <div class="container-fluid justify-content-center">
+        <ul class="navbar-nav mx-auto">
+            <li class="nav-item">
+                <a id="nav-home" class="nav-link" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav-news" class="nav-link" href="/about">About</a>
+            </li>
+            <li class="nav-item">
+                <a id="nav-roster" class="nav-link" href="/contact">Contact</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{{ end }}

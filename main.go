@@ -5,36 +5,47 @@ import (
 	"github.com/labstack/echo/v4"
 	"html/template"
 	"io"
+	"net/http"
 )
 
 type TemplateRenderer struct {
 	templates *template.Template
 }
 
-// render template
+// Render templates
 func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
-
-	//map
+	// Global method
 	if viewContext, isMap := data.(map[string]interface{}); isMap {
 		viewContext["reverse"] = c.Echo().Reverse
 	}
-
 	return t.templates.ExecuteTemplate(w, name, data)
 }
 
 func main() {
 	e := echo.New()
-
-	//Initialize
 	renderer := &TemplateRenderer{
-		templates: template.Must(template.ParseGlob("*.tmpl")),
+		templates: template.Must(template.ParseGlob("templates/*.html")),
 	}
 	e.Renderer = renderer
 
-	// routes
+	// Routes
 	e.GET("/", frontend_handlers.Home)
-	e.GET("/another", frontend_handlers.Alerts)
+	e.GET("/about", frontend_handlers.About)
+	e.GET("/contact", frontend_handlers.Contact)
 
-	// Start the server
-	e.Logger.Fatal(e.Start(":8000"))
+	// 404 handler
+	e.HTTPErrorHandler = func(err error, c echo.Context) {
+		if he, ok := err.(*echo.HTTPError); ok {
+			if he.Code == http.StatusNotFound {
+				err := frontend_handlers.NotFound(c)
+				if err != nil {
+					return
+				}
+				return
+			}
+		}
+		c.Echo().DefaultHTTPErrorHandler(err, c)
+	}
+
+	e.Logger.Fatal(e.Start(":8080"))
 }

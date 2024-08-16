@@ -6,7 +6,9 @@ import (
 )
 
 func Home(c echo.Context) error {
-	return c.Render(http.StatusOK, "home.tmpl", map[string]interface{}{
-		"title": "Home Page",
-	})
+	data := map[string]interface{}{
+		"title": "Home",
+		"page":  "home",
+	}
+	return c.Render(http.StatusOK, "home.html", data)
 }

@@ -1,0 +1,26 @@
+{{ define "layout" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ .title }}</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<div>
+    <!-- Page content will be injected here -->
+    <div class="content">
+        {{ block "content" . }}{{ end }}
+    </div>
+</div>
+<footer>
+    <div>
+        <span>Just a footer</span>
+    </div>
+</footer>
+<script>
+    // Your scripts here
+</script>
+</body>
+</html>
+{{ end }}
