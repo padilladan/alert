@@ -35,8 +35,8 @@ func main() {
 
 	// 404 handler
 	e.HTTPErrorHandler = func(err error, c echo.Context) {
-		if he, ok := err.(*echo.HTTPError); ok {
-			if he.Code == http.StatusNotFound {
+		if ep, ok := err.(*echo.HTTPError); ok {
+			if ep.Code == http.StatusNotFound {
 				err := frontend_handlers.NotFound(c)
 				if err != nil {
 					return
@@ -47,5 +47,10 @@ func main() {
 		c.Echo().DefaultHTTPErrorHandler(err, c)
 	}
 
+	// Serve static files
+	e.Static("/static", "static")
+
+	// Startup Banner hide
+	e.HideBanner = true
 	e.Logger.Fatal(e.Start(":8081"))
 }

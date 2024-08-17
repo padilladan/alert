@@ -1,8 +1,23 @@
 {{ template "layout1" . }}
 
-<h1>{{ .page }} TEST</h1>
-<h2>{{ .page }} TEST?!?!?</h2>
-<p>Welcome to the {{ .page }} page.</p>
-<p> test paragraph</p>
+<section class="page-section" id="about">
+    <div class="page-section-content">
+        <h1 class="mb-0">
+            Alerts
+            <span class="text-primary">App</span>
+        </h1>
+        <div class="subheading mb-5">
+            additional information here
+            <a href="#">email@email.com</a>
+        </div>
+        <p class="lead mb-5">additional description here</p>
+        <div class="social-icons">
+            <a class="social-icon" href="#!"><i class="fab fa-linkedin-in"></i></a>
+            <a class="social-icon" href="#!"><i class="fab fa-github"></i></a>
+            <a class="social-icon" href="#!"><i class="fab fa-twitter"></i></a>
+            <a class="social-icon" href="#!"><i class="fab fa-facebook-f"></i></a>
+        </div>
+    </div>
+</section>
 
 {{ template "layout2" . }}
