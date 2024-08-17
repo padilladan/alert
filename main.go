@@ -8,12 +8,12 @@ import (
 	"net/http"
 )
 
-type TemplateRenderer struct {
+type Template struct {
 	templates *template.Template
 }
 
 // Render templates
-func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
+func (t *Template) Render(w io.Writer, name string, data interface{}, c echo.Context) error {
 	// Global method
 	if viewContext, isMap := data.(map[string]interface{}); isMap {
 		viewContext["reverse"] = c.Echo().Reverse
@@ -23,7 +23,7 @@ func (t *TemplateRenderer) Render(w io.Writer, name string, data interface{}, c 
 
 func main() {
 	e := echo.New()
-	renderer := &TemplateRenderer{
+	renderer := &Template{
 		templates: template.Must(template.ParseGlob("templates/*.html")),
 	}
 	e.Renderer = renderer
@@ -47,5 +47,5 @@ func main() {
 		c.Echo().DefaultHTTPErrorHandler(err, c)
 	}
 
-	e.Logger.Fatal(e.Start(":8080"))
+	e.Logger.Fatal(e.Start(":8081"))
 }

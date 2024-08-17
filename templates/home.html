@@ -1,7 +1,8 @@
-{{ template "layout" . }}
-{{ define "content" }}
-{{ template "header" . }}
-{{ template "nav" . }}
-<h1>Home TEST</h1>
+{{ template "layout1" . }}
+
+<h1>{{ .page }} TEST</h1>
+<h2>{{ .page }} TEST!!</h2>
 <p>Welcome to the {{ .page }} page.</p>
-{{ end }}
+<p> test paragraph</p>
+
+{{ template "layout2" . }}

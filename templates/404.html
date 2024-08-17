@@ -1,8 +1,7 @@
-{{ template "layout" . }}
-{{ define "content" }}
+{{ template "layout1" . }}
 
-<h1>{{ .page }} - Not Found</h1>
+<h1>{{ .page }} - Page Not Found</h1>
 <p>{{ .message }}</p>
 <a href="/">Go back to the homepage</a>
 
-{{ end }}
+{{ template "layout2" . }}
