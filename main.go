@@ -32,6 +32,7 @@ func main() {
 	e.GET("/", frontend_handlers.Home)
 	e.GET("/about", frontend_handlers.About)
 	e.GET("/contact", frontend_handlers.Contact)
+	e.GET("/login_sign_up", frontend_handlers.LoginSignUp)
 
 	// 404 handler
 	e.HTTPErrorHandler = func(err error, c echo.Context) {

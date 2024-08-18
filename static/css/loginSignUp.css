@@ -1,0 +1,68 @@
+.lsu {
+    padding-top: 10%;
+    padding-bottom: 10%;
+}
+
+.hr {
+    /*visibility: hidden;*/
+    padding-bottom: 8%;
+}
+
+.line {
+    border-top: 1px solid #000; /* Creates a solid line */
+    margin: 20px 0; /* Adds space around the line */
+    width: 100%; /* Makes the line take up the full width of its container */
+}
+
+.login-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+}
+.login-container input[type="text"],
+.login-container input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+.login-container button {
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(0, 92, 255);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.login-container button:hover {
+    background-color: #0056b3;
+}
+.login-container a {
+    display: block;
+    margin-top: 10px;
+    color: #007bff;
+    text-decoration: none;
+}
+.login-container .create-account {
+    margin-top: 8px;
+    padding: 10px;
+    background-color: #528c60;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    display: inline-block;
+    font-size: 16px;
+}
+.login-container .create-account:hover {
+    background-color: #3c6844;
+}
+
+@media (max-width: 500px) {
+    justify-content: center !important;
+}
