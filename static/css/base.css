@@ -1,0 +1,33 @@
+body {
+    background-color: #f2f4f7;
+}
+
+.container {
+    background-color: white;
+}
+
+.content {
+    margin: 1.5% 1%;
+    background-color: white;
+}
+
+.navbar-brand {
+    /*padding-left: 1%;*/
+}
+
+@media (min-width: 900px) {
+    .bi {
+        /*padding-right: 5% !important;*/
+        justify-content: end !important;
+    }
+}
+
+@media (max-width: 550px) {
+    .navbar-collapse {
+        text-align: center;
+    }
+
+    .navbar-nav {
+        margin: auto;
+    }
+}

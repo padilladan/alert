@@ -1,0 +1,29 @@
+{{ template "layout1" . }}
+
+<!-- link to this pages' css will be added to the index.html-->
+{{ define "css" }}
+<link rel="stylesheet" href="/static/css/loginSignUp.css">
+{{ end }}
+
+<!-- link to this pages' js will be added to the index.html-->
+{{ define "js" }}
+<script src="/static/js/loginSignUp.js"></script>
+{{ end }}
+
+<div class="d-sm-flex col justify-content-center lsu">
+    <div>
+        <form>
+            <div class="login-container">
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <button type="button">Log In</button>
+                <a href="#">Forgot password?</a>
+                <hr class="hr">
+                <h4>Create an account</h4>
+                <a href="#" class="create-account">Create account</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+{{ template "layout2" . }}
