@@ -12,15 +12,15 @@
 
 <div class="d-sm-flex col justify-content-center lsu">
     <div>
-        <form>
+        <form action="/login" method="POST">
             <div class="login-container">
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button type="button">Log In</button>
+                <input type="text" placeholder="Email" name="Email" required>
+                <input type="password" placeholder="Password" name="Password" required>
+                <button type="submit">Log In</button>
                 <a href="#">Forgot password?</a>
                 <hr class="hr">
                 <h4>Create an account</h4>
-                <a href="#" class="create-account">Create account</a>
+                <a href="/register" class="create-account">Create account</a>
             </div>
         </form>
     </div>

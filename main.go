@@ -3,6 +3,7 @@ package main
 import (
 	"alert/frontend_handlers"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"html/template"
 	"io"
 	"net/http"
@@ -28,11 +29,22 @@ func main() {
 	}
 	e.Renderer = renderer
 
-	// Routes
-	e.GET("/", frontend_handlers.Home)
+	// Serve static files
+	e.Static("/static", "static")
+
+	// Middleware
+	e.Use(middleware.Logger())
+	e.Use(middleware.Recover())
+
+	// GET Routes
+	e.GET("/", frontend_handlers.Alerts)
 	e.GET("/about", frontend_handlers.About)
+	e.GET("/configuration", frontend_handlers.Configuration)
 	e.GET("/contact", frontend_handlers.Contact)
 	e.GET("/login_sign_up", frontend_handlers.LoginSignUp)
+
+	// POST Routes
+	e.POST("/login_sign_up", frontend_handlers.LoginPost)
 
 	// 404 handler
 	e.HTTPErrorHandler = func(err error, c echo.Context) {
@@ -47,9 +59,6 @@ func main() {
 		}
 		c.Echo().DefaultHTTPErrorHandler(err, c)
 	}
-
-	// Serve static files
-	e.Static("/static", "static")
 
 	// Startup Banner hide
 	e.HideBanner = true

@@ -5,10 +5,10 @@ import (
 	"net/http"
 )
 
-func Home(c echo.Context) error {
+func Alerts(c echo.Context) error {
 	data := map[string]interface{}{
-		"title": "Home",
-		"page":  "home",
+		"page": "Alerts",
 	}
+
 	return c.Render(http.StatusOK, "alerts.html", data)
 }
