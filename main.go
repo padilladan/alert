@@ -36,7 +36,7 @@ func main() {
 	e.Use(middleware.Logger())
 	e.Use(middleware.Recover())
 
-	// GET Routes
+	// GET Routes (unauthenticated)
 	e.GET("/", frontend_handlers.Alerts)
 	e.GET("/about", frontend_handlers.About)
 	e.GET("/configuration", frontend_handlers.Configuration)
