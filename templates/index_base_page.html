@@ -1,0 +1,20 @@
+{{ define "layout1" }}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ template "head" . }}
+</head>
+<body>
+<div class="container">
+    {{ template "nav" . }}
+{{ end }}
+
+<!-- page content will be put in here -->
+
+{{ define "layout2" }}
+    {{ template "footer" . }}
+</div>
+    {{ template "scripts" . }}
+</body>
+</html>
+{{ end }}
